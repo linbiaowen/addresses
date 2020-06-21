@@ -1,0 +1,52 @@
+---
+openapi: 3.0.2
+info:
+  title: Addresses
+  version: 1.0.0
+  description: Address testing api
+paths:
+  /addresses:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Address'
+              examples:
+                addresses Example:
+                  value:
+                  - id: some text
+                    city: some text
+                    zip: some text
+                    address: some text
+                  - id: some text
+                    city: some text
+                    zip: some text
+                    address: some text
+          description: return array of address
+      operationId: getAddresses
+      summary: List API
+      description: get List of addresses
+components:
+  schemas:
+    Address:
+      title: Root Type for Address
+      description: Address object
+      type: object
+      properties:
+        id:
+          type: string
+        city:
+          type: string
+        zip:
+          type: string
+        address:
+          type: string
+      example:
+        id: "10001"
+        city: HK
+        zip: "100001"
+        address: Whampoa Garden KLN
